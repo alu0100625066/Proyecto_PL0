@@ -1,7 +1,14 @@
-# Sinatra example Using PEG.js and DataMapper
+# Proyecto Procesadores de Lenguajes: PL0
 
-* [PEG.js](http://pegjs.majda.cz/)
-* [DataMapper](http://datamapper.org/docs/)
-* [PL0 Grammar. Wikipedia](http://en.wikipedia.org/wiki/Recursive_descent_parser)
-* [ULL-ETSII-GRADO-PL-13-14](https://plus.google.com/u/0/communities/107031495100582318205)
-* [PL Entorno virtual de docencia institucional 2013/2014 ULL](http://campusvirtual.ull.es/1314/course/view.php?id=1104)
+## Descripción
+
+Escribir un analizador del lenguaje PL0 usando PEGjs así como las tecnologías vistas durante el curso: ECMA6, Node.js, expressJS, MongoDB, Mongoose, SASS, etc. La salida debe ser el árbol de análisis sintáctico del programa de entrada.
+
+## Repositorio GitHuB
+
+* [Repositorio de trabajo y organización](https://github.com/alu0100614220/proyecto_PL0)
+
+
+## Página del autor
+
+* [Adrián Mesa Jaubert](http://alu0100614220.github.io/)

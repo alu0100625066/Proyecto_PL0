@@ -1,4 +1,4 @@
-.bundle/
-.sass-cache/
-database.db
-pegjscalc_herzog
+*~
+node_modules
+*log
+*.out
