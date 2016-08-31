@@ -16,14 +16,18 @@ let addValSymbolTable = (symbolTable, val, type) => {
         symbolTable[val] = type;
     }
 };
+
 let createSymbolTable = (tree, symbolTable) => {
+
     tree.symbolTable = {
+        father: symbolTable
     };
     if (tree.type == "FUNCTION") {
-
+        tree.symbolTable.name = tree.name.value;
         tree.block.variables.forEach((val) => addValSymbolTable(tree.symbolTable, val, "variable"));
         tree.block.constants.forEach((val) => addValSymbolTable(tree.symbolTable, val, "constant"));
         tree.block.functions.forEach((val) => addValSymbolTable(tree.symbolTable, val.name.value, "function"));
+
     }
     if (tree.type == "BLOCK") {
         tree.variables.forEach((val) => addValSymbolTable(tree.symbolTable, val, "variable"));
@@ -32,7 +36,21 @@ let createSymbolTable = (tree, symbolTable) => {
     }
 };
 
+// let check = (symbolTable, val, type) => {
+   
+//     if(symbolTable.type == "FUNCTION"){
+//         symbolTable.block.functions.forEach((val) => check(symbolTable.symbolTable, val, "xd"));
+//     }
+
+//     if(symbolTable.type == "BLOCK"){
+//         symbolTable.functions.forEach((val) => check(symbolTable.symbolTable, val, "xd"));
+//     }
+// }
+
 function semantic(tree) {
     eachBlockPre(tree, createSymbolTable, symbolTableEmpty);
-    eachBlockPre2(tree, createSymbolTable, symbolTableEmpty);
+    eachBlockPre(tree, createSymbolTable, tree.symbolTable);
+ //   eachBlockPre(tree, check, tree.symbolTable);
+ 
+    tree["symbolTable"].father = {};
 }

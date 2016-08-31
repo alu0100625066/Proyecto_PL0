@@ -6,9 +6,9 @@ Escribir un analizador del lenguaje PL0 usando PEGjs así como las tecnologías 
 
 ## Repositorio GitHuB
 
-* [Repositorio de trabajo y organización](https://github.com/alu0100614220/proyecto_PL0)
+* [Repositorio de trabajo y organización](https://github.com/alu0100625066/Proyecto_PL0)
 
 
 ## Página del autor
 
-* [Adrián Mesa Jaubert](http://alu0100614220.github.io/)
+* [Simón Fuertes Sánchez](http://alu0100625066.github.io/)
