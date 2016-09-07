@@ -36,40 +36,34 @@ let createSymbolTable = (tree, symbolTable) => {
     }
 };
 
-let checkSymbol = (symbolTable, val, type) => {
-    
-    if(symbolTable.father[val[0]] != undefined) {
-        console.log("Elemento duplicado");
-        symbolTable[val[0]] = "Duplicado";
-    }
-    
-};
-
 let checkSymboltable = (tree, symbolTable) => {
-    
-    if(tree.type == "FUNCTION") {
-        
+
+    if (tree.type == "FUNCTION") {
         tree.block.variables.forEach((val) => checkSymbol(tree.symbolTable, val, "variable"));
-        tree.block.variables.forEach((val) => checkSymbol(tree.symbolTable, val, "constant"));
-        tree.block.variables.forEach((val) => checkSymbol(tree.symbolTable, val.name.value, "function"));
-        
+        tree.block.constants.forEach((val) => checkSymbol(tree.symbolTable, val, "constant"));
+        tree.block.functions.forEach((val) => checkSymbol(tree.symbolTable, val.name.value, "function"));
+
     }
-    
-    if(tree.type == "BLOCK") {
-        
+    if (tree.type == "BLOCK") {
         tree.variables.forEach((val) => checkSymbol(tree.symbolTable, val, "variable"));
         tree.constants.forEach((val) => checkSymbol(tree.symbolTable, val, "constant"));
         tree.functions.forEach((val) => checkSymbol(tree.symbolTable, val.name.value, "function"));
-        
     }
+};
+
+let checkSymbol = (symbolTable, val, type) => {
     
+    if(symbolTable.father[val[0]] != undefined){
+        console.log("Elemento duplicado");
+        symbolTable[val[0]] = "Duplicado"
+    }
 };
 
 function semantic(tree) {
-    
     eachBlockPre(tree, createSymbolTable, symbolTableEmpty);
     eachBlockPre(tree, createSymbolTable, tree.symbolTable);
+
     tree["symbolTable"].father = {};
     eachBlockPre(tree, checkSymboltable, tree.symbolTable);
-    
+
 }
