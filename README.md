@@ -15,3 +15,6 @@ Escribir un analizador del lenguaje PL0 usando PEGjs así como las tecnologías 
 
 ## Despliegue en C9
 * [Web](https://proyecto-pl0-alu0100625066.c9users.io/)
+
+## Despliegue en Heroku
+* [Web](https://proyecto-pl0.herokuapp.com)
